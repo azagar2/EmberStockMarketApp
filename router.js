@@ -3,18 +3,8 @@
  */
 StockMarketApp.Router.map(function() {
     this.resource('stockStateSummary', {path: '/'}, function() {
-        this.resource('marketTables');
-        this.resource('placeBidOrder');
-        this.resource('placeSaleOrder');
+        this.resource('marketTables', { path:'/marketTables/:company_id'});
+        this.resource('placeBidOrder', { path:'/buy/:company_id'});
+        this.resource('placeSaleOrder', { path:'/sell/:company_id'});
     });
 });
-
-
-    //this.resource('marketByOrder');
-    //this.resource('marketByPrice');
-
-    //this.resource('contact', function(){
-    //    this.resource('phone');
-    //    this.resource('email');
-    //});
-

@@ -1,14 +1,15 @@
 <div class="container">
-    <h2>Place Bid Order for {{model.name}} </h2>
+    <h2>Place Buy Order for {{model.name}} </h2>
     <form role="form">
         <div class="form-group">
-            <label for="email">Number of Shares</label>
-            <input type="email" class="form-control" id="volume" placeholder="Enter number">
+            <label for="volume">Number of Shares</label>
+            <input class="form-control" id="volume" placeholder="Enter number">
         </div>
         <div class="form-group">
-            <label for="pwd">Purchase Price</label>
-            <input type="password" class="form-control" id="price" placeholder="Enter price">
+            <label for="price">Purchase Price</label>
+            <input class="form-control" id="price" placeholder="Enter price">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <br>
+        <button type="submit" class="btn btn-default" {{action 'save' model.id}}>Submit</button>
     </form>
 </div>

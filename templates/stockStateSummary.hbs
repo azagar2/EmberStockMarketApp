@@ -18,13 +18,13 @@
 
         {{#each company in model}}
             <tr>
-                <td>{{#link-to 'marketTables'}}<button class= "btn-link" style = "..." > {{company.name}} </button>{{/link-to}}</td>
+                <td>{{#link-to 'marketTables' company.id}}<button class= "btn-link" style = "..." > {{company.name}} </button>{{/link-to}}</td>
                 <td>{{company.openPrice}}</td>
                 <td>Content</td>
                 <td>Content</td>
                 <td>Content</td>
-                <td>{{#link-to 'placeBidOrder'}}<button class= "btn-info" style = "..." > Buy </button>{{/link-to}}
-                {{#link-to 'placeSaleOrder'}}<button class= "btn-warning" style = "..." > Sell </button>{{/link-to}} </td>
+                <td>{{#link-to 'placeBidOrder' company.id}}<button class= "btn-info" style = "..." > Buy </button>{{/link-to}}
+                {{#link-to 'placeSaleOrder' company.id}}<button class= "btn-warning" style = "..." > Sell </button>{{/link-to}} </td>
             </tr>
         {{/each}}
 
@@ -40,10 +40,10 @@
 
 </div>
 
-<div class = "container">
+<!--<div class = "container">-->
 
-    <div class = "col-md-8"> {{partial "placeBidOrder"}} </div>
+    <!--<div class = "col-md-8">  </div>-->
 
-</div>
+<!--</div>-->
 
 
