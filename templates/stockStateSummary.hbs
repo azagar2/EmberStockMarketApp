@@ -1,0 +1,49 @@
+
+<!-- Stock State Summary -->
+<div class = "container">
+    <table class="table table-hover">
+
+        <thead>
+        <tr>
+            <th>Company</th>
+            <th>Open Price</th>
+            <th>Current Price</th>
+            <th>Change Value - %</th>
+            <th> Share Volume</th>
+            <th> Buy / Sell</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {{#each company in model}}
+            <tr>
+                <td>{{#link-to 'marketTables'}}<button class= "btn-link" style = "..." > {{company.name}} </button>{{/link-to}}</td>
+                <td>{{company.openPrice}}</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>{{#link-to 'placeBidOrder'}}<button class= "btn-info" style = "..." > Buy </button>{{/link-to}}
+                {{#link-to 'placeSaleOrder'}}<button class= "btn-warning" style = "..." > Sell </button>{{/link-to}} </td>
+            </tr>
+        {{/each}}
+
+        </tbody>
+
+    </table>
+</div>
+
+<div class = "container">
+
+    <div class = "col-md-8"> {{outlet 'content'}} </div>
+    <div class = "col-md-4"> {{outlet 'logo'}} </div>
+
+</div>
+
+<div class = "container">
+
+    <div class = "col-md-8"> {{partial "placeBidOrder"}} </div>
+
+</div>
+
+
