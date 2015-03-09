@@ -1,0 +1,45 @@
+<h3> Market by Price</h3>
+<div class = "row">
+    <div class = "col-md-6">
+        <table class = "table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Buy Volume</th>
+                <th>Buy Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each order in groupedBuyOrders}}
+                <tr>
+                    <td>{{order.contracts}}</td>
+                    <td>{{order.size}}</td>
+                    <td>{{order.price}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class = "col-md-6">
+        <table class = "table table-hover">
+            <thead>
+            <tr>
+                <th>Sell Price</th>
+                <th>Sell Volume</th>
+                <th>#</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each order in groupedSellOrders}}
+                <tr>
+                    <td>{{order.price}}</td>
+                    <td>{{order.size}}</td>
+                    <td>1</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

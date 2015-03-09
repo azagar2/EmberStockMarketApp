@@ -1,12 +1,11 @@
 /**
  * Created by andrea on 15-03-08.
  */
-StockMarketApp.PlaceSaleOrderController = Ember.Controller.extend({
+StockMarketApp.PlaceSaleOrderController = Ember.ObjectController.extend({
+
     actions: {
         save: function(companyID) {
-            //var company = this.store.find('company', companyID).then(function(data) {
-            //    console.log(data.get('name'));
-            //});
+            var sellOrderList;
             var company = this.store.find('company', companyID);
             var newOrder = this.store.createRecord('sellOrder', {
                 size: this.get('volume'),
@@ -18,16 +17,7 @@ StockMarketApp.PlaceSaleOrderController = Ember.Controller.extend({
                 company.get('sellOrders').pushObject(newOrder);
             });
 
-            //newOrder.save();
-            //debugger;
-            //console.log(this.store.find('company', companyID).get('data'));
-            //(this.store.find('company', companyID)).get('buyOrders').addObject(this.store.createRecord('order', {
-            ////model.get('buyOrders').addObject(this.store.createRecord('order', {
-            //    size: this.get('volume'),
-            //    price: this.get('price')
-            //}));
-
-            this.transitionToRoute('stockStateSummary');
+            //this.transitionToRoute('stockStateSummary');
         }
     }
 });

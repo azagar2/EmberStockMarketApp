@@ -6,12 +6,16 @@
     <!--<link rel="stylesheet" href="css/foundation.min.css">-->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>-->
 
     <script src="libs/jquery-1.11.2.min.js"></script>
     <script src="libs/handlebars-v2.0.0.js"></script>
     <script src="libs/ember.js"></script>
-
     <script src="libs/ember-handlebars-loader-0.0.1.js"></script>
     <script src="libs/ember-data.js"></script>
     <script src="libs/localstorage-adapter-0.3.2.js"></script>
@@ -25,19 +29,20 @@
 
     <script src="companyData.js"></script>
 
-    <script src="controllers/marketTables.js"></script>
-    <script src="controllers/placeBidOrder.js"></script>
-    <script src="controllers/placeSaleOrder.js"></script>
-
     <script src="routes/marketTables.js"></script>
     <script src="routes/placeBidOrder.js"></script>
     <script src="routes/placeSaleOrder.js"></script>
     <script src="routes/stockStateSummary.js"></script>
     <script src="routes/logo.js"></script>
 
+    <script src="controllers/marketTables.js"></script>
+    <script src="controllers/placeBidOrder.js"></script>
+    <script src="controllers/placeSaleOrder.js"></script>
+
     <script>
         EmberHandlebarsLoader.loadTemplates([
-            'application', 'marketTables', 'placeBidOrder', 'placeSaleOrder', 'stockStateSummary'
+            'application', 'marketTables', 'placeBidOrder', 'placeSaleOrder', 'stockStateSummary', 'logo',
+                'marketByOrder', 'marketByPrice'
         ]);
     </script>
 
