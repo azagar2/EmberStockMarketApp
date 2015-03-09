@@ -1,56 +1,100 @@
-<div class = "col-md-6">
+<div class = "container">
+    <div class = "row">
+        <div class = "col-md-6">
+            <h3> Market by Order</h3>
+            <div class = "col-md-6">
+                <table class = "table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Buy Volume</th>
+                        <th>Buy Price</th>
+                    </tr>
+                    </thead>
 
-    <h3> Market by Order</h3>
-    <table class = "table table-hover">
+                    <tbody>
+                    {{#each order in model.buyOrders}}
+                        <tr>
+                            <td>{{order.size}}</td>
+                            <td>{{order.price}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class = "col-md-6">
+                <table class = "table table-hover">
 
-        <thead>
-        <tr>
-            <th>Buy Volume</th>
-            <th>Buy Price</th>
-            <th>Sell Price</th>
-            <th>Sell Volume</th>
-        </tr>
-        </thead>
+                    <thead>
+                    <tr>
+                        <th>Sell Price</th>
+                        <th>Sell Volume</th>
+                    </tr>
+                    </thead>
 
-        <tbody>
-        <tr>
-            <td>{{model.name}}</td>
-            <td>$55000</td>
-            <td>$4400</td>
-            <td>2000</td>
-        </tr>
-        </tbody>
+                    <tbody>
+                    {{#each order in model.sellOrders}}
+                        <tr>
+                            <td>{{order.price}}</td>
+                            <td>{{order.size}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
 
-    </table>
+                </table>
+            </div>
+        </div>
+
+        <div class = "col-md-6">
+            <h3> Market by Price</h3>
+            <table class = "table table-hover">
+
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Buy Volume</th>
+                    <th>Buy Price</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each order in model.buyOrders}}
+                    <tr>
+                        <td>1</td>
+                        <td>{{order.size}}</td>
+                        <td>{{order.price}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+
+            </table>
+            <table class = "table table-hover">
+
+                <thead>
+                <tr>
+                    <th>Sell Price</th>
+                    <th>Sell Volume</th>
+                    <th>#</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each order in model.sellOrders}}
+                    <tr>
+                        <td>{{order.price}}</td>
+                        <td>{{order.size}}</td>
+                        <td>1</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
 
 </div>
 
-<div class = "col-md-6">
 
-    <h3> Market by Price</h3>
-    <table class = "table table-hover">
 
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Buy Volume</th>
-            <th>Buy Price</th>
-            <th>Sell Price</th>
-            <th>Sell Volume</th>
-            <th>#</th>
-        </tr>
-        </thead>
 
-        <tbody>
-        <tr>
-            <td>4</td>
-            <td>550 000</td>
-            <td>104.7</td>
-            <td>103.4</td>
-            <td>4000</td>
-            <td>70</td>
-        </tr>
-        </tbody>
-
-    </table>
-</div>

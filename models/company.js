@@ -7,7 +7,7 @@ StockMarketApp.Company = DS.Model.extend({
     openPrice: DS.attr(),
     lastPrice: DS.attr(),
     shareVolume: DS.attr(),
-    buyOrders: DS.hasMany('order'),
-    sellOrders: DS.hasMany('order')
+    buyOrders: DS.hasMany('buyOrder'),
+    sellOrders: DS.hasMany('sellOrder')
 });
 

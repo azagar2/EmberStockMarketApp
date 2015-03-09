@@ -4,20 +4,30 @@
 StockMarketApp.PlaceBidOrderController = Ember.Controller.extend({
     actions: {
         save: function(companyID) {
-            var newOrder = this.store.createRecord('order', {
+            //var company = this.store.find('company', companyID).then(function(data) {
+            //    console.log(data.get('name'));
+            //});
+            var company = this.store.find('company', companyID);
+            var newOrder = this.store.createRecord('buyOrder', {
                 size: this.get('volume'),
-                price: this.get('price')
+                price: this.get('price'),
+                company: company
             });
-            newOrder.save();
-            console.log("hi");
 
-            //model.get('buyOrders').addObject(this.store.createRecord('order', {
+            newOrder.save().then(function() {
+                company.get('buyOrders').pushObject(newOrder);
+            });
+
+            //newOrder.save();
+            //debugger;
+            //console.log(this.store.find('company', companyID).get('data'));
+            //(this.store.find('company', companyID)).get('buyOrders').addObject(this.store.createRecord('order', {
+            ////model.get('buyOrders').addObject(this.store.createRecord('order', {
             //    size: this.get('volume'),
             //    price: this.get('price')
             //}));
 
-            //this.transitionToRoute('stockStateSummary');
+            this.transitionToRoute('stockStateSummary');
         }
     }
-
 });
