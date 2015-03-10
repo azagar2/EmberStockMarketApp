@@ -19,10 +19,10 @@ StockMarketApp.MarketTablesController = Ember.Controller.extend({
         ungrouped.sort(function(a, b) {return a.get('price')-b.get('price')});
         var newArray = new Array();
 
-        var buyLength = ungrouped.length;
+        var arrayLength = ungrouped.length;
         var numContracts = 0, totalVolume = 0, price = 0, numRows = 0;
 
-        for (i = 0; i < buyLength; i++) {
+        for (i = 0; i < arrayLength; i++) {
 
             if (i == 0) {
                 price = ungrouped[i].get('price');
@@ -43,7 +43,7 @@ StockMarketApp.MarketTablesController = Ember.Controller.extend({
                     break;
             }
 
-            if ((i == buyLength-1) || price != ungrouped[i+1].get('price'))
+            if ((i == arrayLength-1) || price != ungrouped[i+1].get('price'))
             {
                 var newRecord = {
                     contracts: +numContracts,
@@ -53,19 +53,19 @@ StockMarketApp.MarketTablesController = Ember.Controller.extend({
                 newArray.push(newRecord);
             }
         }
-        return newArray;
+        return newArray.slice(0,10);
 
     }.property('content.buyOrders.@each'),
 
     groupedSellOrders: function() {
         var ungrouped = this.get('content').get('sellOrders').toArray();
-        ungrouped.sort(function(a, b) {return a.get('price')-b.get('price')}).reverse();
+        ungrouped.sort(function(a, b) {return a.get('price')-b.get('price')});
         var newArray = new Array();
 
-        var sellLength = ungrouped.length;
+        var arrayLength = ungrouped.length;
         var numContracts = 0, totalVolume = 0, price = 0, numRows = 0;
 
-        for (i = 0; i < sellLength; i++) {
+        for (i = 0; i < arrayLength; i++) {
 
             if (i == 0) {
                 price = ungrouped[i].get('price');
@@ -86,7 +86,7 @@ StockMarketApp.MarketTablesController = Ember.Controller.extend({
                     break;
             }
 
-            if ((i == sellLength-1) || price != ungrouped[i+1].get('price'))
+            if ((i == arrayLength-1) || price != ungrouped[i+1].get('price'))
             {
                 var newRecord = {
                     contracts: +numContracts,
@@ -96,7 +96,7 @@ StockMarketApp.MarketTablesController = Ember.Controller.extend({
                 newArray.push(newRecord);
             }
         }
-        return newArray;
+        return newArray.reverse().slice(0,10);
     }.property('content.sellOrders.@each')
 
     //orders: Ember.computed.sort('model.content.buyOrders', function(a,b) {

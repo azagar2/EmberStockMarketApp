@@ -9,3 +9,4 @@ StockMarketApp.PlaceBidOrderRoute = Ember.Route.extend({
         this.render({outlet: 'content'});
     }
 });
+

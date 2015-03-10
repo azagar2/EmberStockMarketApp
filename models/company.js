@@ -5,10 +5,10 @@ StockMarketApp.Company = DS.Model.extend({
     name: DS.attr(),
     symbol: DS.attr(),
     openPrice: DS.attr(),
-    lastPrice: DS.attr(),
+    lastPrice: DS.attr('number'),
     shareVolume: DS.attr(),
     buyOrders: DS.hasMany('buyOrder'),
-    sellOrders: DS.hasMany('sellOrder'),
+    sellOrders: DS.hasMany('sellOrder')
 
     ////buyOrdersSorting: ['buyOrder.price:desc'],
     //sortedBuyOrders: Ember.computed.sort('buyOrders', function(a, b) {
