@@ -1,3 +1,5 @@
+<!-- MARKET BY ORDER TABLE -->
+<!-- There are two tables to make it easier to insert both buy and sell data -->
 <div class = "row">
     <h3> Market by Order</h3>
     <div class = "col-md-6">
@@ -10,6 +12,7 @@
             </thead>
 
             <tbody>
+            <!-- Goes through the array returned from sortedBuyOrders in the marketTables controller -->
             {{#each order in sortedBuyOrders}}
                 <tr>
                     <td>{{order.size}}</td>
@@ -28,6 +31,7 @@
             </tr>
             </thead>
             <tbody>
+            <!-- Goes through the array returned from sortedSellOrders in the marketTables controller -->
             {{#each order in sortedSellOrders}}
                 <tr>
                     <td>{{order.price}}</td>
@@ -37,5 +41,4 @@
             </tbody>
         </table>
     </div>
-</div>
 </div>

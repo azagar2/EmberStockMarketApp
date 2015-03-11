@@ -1,45 +1,47 @@
-<!--<div class = "row">-->
-    <h3> Market by Price</h3>
-    <div class = "col-md-6">
-        <table class = "table table-hover table-bordered">
-            <thead>
+<!-- MARKET BY PRICE TABLE -->
+<!-- There are two tables to make it easier to insert both buy and sell data -->
+<h3> Market by Price</h3>
+<div class = "col-md-6">
+    <table class = "table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Buy Volume</th>
+            <th>Buy Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Goes through the array returned from groupedBuyOrders in the marketTables controller -->
+        {{#each order in groupedBuyOrders}}
             <tr>
-                <th>#</th>
-                <th>Buy Volume</th>
-                <th>Buy Price</th>
+                <td>{{order.contracts}}</td>
+                <td>{{order.size}}</td>
+                <td>{{order.price}}</td>
             </tr>
-            </thead>
-            <tbody>
-            {{#each order in groupedBuyOrders}}
-                <tr>
-                    <td>{{order.contracts}}</td>
-                    <td>{{order.size}}</td>
-                    <td>{{order.price}}</td>
-                </tr>
-            {{/each}}
-            </tbody>
-        </table>
-    </div>
-    <div class = "col-md-6">
-        <table class = "table table-hover table-bordered">
-            <thead>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+<div class = "col-md-6">
+    <table class = "table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Sell Price</th>
+            <th>Sell Volume</th>
+            <th>#</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Goes through the array returned from groupedSellOrders in the marketTables controller -->
+        {{#each order in groupedSellOrders}}
             <tr>
-                <th>Sell Price</th>
-                <th>Sell Volume</th>
-                <th>#</th>
+                <td>{{order.price}}</td>
+                <td>{{order.size}}</td>
+                <td>{{order.contracts}}</td>
             </tr>
-            </thead>
-            <tbody>
-            {{#each order in groupedSellOrders}}
-                <tr>
-                    <td>{{order.price}}</td>
-                    <td>{{order.size}}</td>
-                    <td>{{order.contracts}}</td>
-                </tr>
-            {{/each}}
-            </tbody>
-        </table>
-    </div>
-<!--</div>-->
+        {{/each}}
+        </tbody>
+    </table>
+</div>
 
 

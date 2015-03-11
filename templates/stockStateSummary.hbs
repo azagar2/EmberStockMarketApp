@@ -1,38 +1,54 @@
-
 <!-- Stock State Summary -->
-<div class = "container">
-    <table class="table table-hover">
 
+<!-- Buttons for selecting the method of ordering the companies (by volume, gainers or losers) -->
+<!-- Calls the setMode action in the stockStateSummary controller, which returns the specified ordered array -->
+<div class = "container">
+    <br>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"{{action 'setMode' 0}}>Active by Volume</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"{{action 'setMode' 1}}>Gainers</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"{{action 'setMode' 2}}>Losers</button>
+        </div>
+    </div>
+    <br>
+
+    <!-- This is the stock state summary table -->
+    <table class="table table-hover">
         <thead>
         <tr>
             <th>Company</th>
             <th>Open Price</th>
             <th>Current Price</th>
-            <th>Change Value - %</th>
+            <th>Change: Value - %</th>
             <th> Share Volume</th>
             <th> Buy / Sell</th>
         </tr>
         </thead>
 
         <tbody>
-
-        {{#each company in model}}
+        <!-- Goes through the returned sorted array -->
+        {{#each company in sortedCompanies}}
             <tr>
                 <td>{{#link-to 'marketTables' company.id}}<button class= "btn-link" style = "..." > {{company.name}} </button>{{/link-to}}</td>
                 <td>{{company.openPrice}}</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
+                <td>{{company.lastPrice}}</td>
+                <td>{{company.priceChange}} <img {{bind-attr src=company.arrow}}>  {{company.percentage}} </td>
+                <td>{{company.shareVolume}}</td>
                 <td>{{#link-to 'placeBidOrder' company.id}}<button class= "btn-info" style = "..." > Buy </button>{{/link-to}}
                 {{#link-to 'placeSaleOrder' company.id}}<button class= "btn-warning" style = "..." > Sell </button>{{/link-to}} </td>
             </tr>
         {{/each}}
 
         </tbody>
-
     </table>
 </div>
 
+<!-- Place for other templates to render underneath table (i.e. market tables or buy/sell order forms) -->
 <div class = "col-md-12">
     {{outlet 'content'}}
 </div>

@@ -2,18 +2,23 @@
  * Created by andrea on 15-03-08.
  */
 StockMarketApp.MarketTablesController = Ember.Controller.extend({
+
+    // Returns 10 buy orders in array from highest to lowest price
     sortedBuyOrders: function() {
         var myArray = this.get('content').get('buyOrders').toArray();
-        myArray.sort(function(a, b) {return a.get('price')-b.get('price')});
+        //myArray.sort(function(a, b) {return a.get('price')-b.get('price')});
+        myArray.sort(function(a, b) {return b.get('price')-a.get('price')});
         return myArray.slice(0,10);
-    }.property('content.buyOrders.@each'),
+    }.property('content.buyOrders.@each.size'),
 
+    // Returns 10 sell orders in array from lowest to highest price
     sortedSellOrders: function() {
         var myArray = this.get('content').get('sellOrders').toArray();
         myArray.sort(function(a, b) {return a.get('price')-b.get('price')});
-        return myArray.reverse().slice(0,10);
-    }.property('content.sellOrders.@each'),
+        return myArray.slice(0,10);
+    }.property('content.sellOrders.@each.size'),
 
+    // Returns 10 buy orders in array from highest to lowest price (with same prices grouped together)
     groupedBuyOrders: function() {
         var ungrouped = this.get('content').get('buyOrders').toArray();
         ungrouped.sort(function(a, b) {return a.get('price')-b.get('price')});
@@ -53,10 +58,10 @@ StockMarketApp.MarketTablesController = Ember.Controller.extend({
                 newArray.push(newRecord);
             }
         }
-        return newArray.slice(0,10);
+        return newArray.reverse().slice(0,10);
+    }.property('content.buyOrders.@each.size'),
 
-    }.property('content.buyOrders.@each'),
-
+    // Returns 10 sell orders in array from lowest to highest price (with same prices grouped together)
     groupedSellOrders: function() {
         var ungrouped = this.get('content').get('sellOrders').toArray();
         ungrouped.sort(function(a, b) {return a.get('price')-b.get('price')});
@@ -96,23 +101,7 @@ StockMarketApp.MarketTablesController = Ember.Controller.extend({
                 newArray.push(newRecord);
             }
         }
-        return newArray.reverse().slice(0,10);
-    }.property('content.sellOrders.@each')
-
-    //orders: Ember.computed.sort('model.content.buyOrders', function(a,b) {
-    //    var a1 = parseFloat(a.get('price'));
-    //    var b1 = parseFloat(b.get('price'));
-    //    if (a1 < b1) { return 1;}
-    //    if (a1 > b1) { return -1;}
-    //    else return 0;
-    //}),
-    //
-    //orderedList: function() {
-    //    return ('orders').slice(0,10);
-    //}
-
-    //['price:desc']
-    //sort(function(a, b) {return a.price- b.price})
-    //;
+        return newArray.slice(0,10);
+    }.property('content.sellOrders.@each.size')
 
 });

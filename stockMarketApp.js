@@ -6,12 +6,7 @@ StockMarketApp = Ember.Application.create({
 });
 
 StockMarketApp.ApplicationSerializer = DS.LSSerializer.extend();
-//StockMarketApp.PlaceBidOrderAdapter = DS.LSAdapter.extend({
-//    namespace: 'StockMarketApp'
-//});
-//StockMarketApp.PlaceSaleOrderAdapter = DS.LSAdapter.extend({
-//    namespace: 'StockMarketApp'
-//});
+
 StockMarketApp.ApplicationAdapter = DS.LSAdapter.extend({
     namespace: 'StockMarketApp'
 });
