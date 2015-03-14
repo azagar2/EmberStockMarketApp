@@ -3,16 +3,19 @@
  */
 // Controls what the stock state summary table is sorted by
 StockMarketApp.StockStateSummaryController = Ember.Controller.extend({
-
     actions: {
         setMode: function(mode) {
             this.set('mode', mode);
+
+            // Partytime.
+            this.set('what', mode == 3);
+
             this.transitionToRoute('stockStateSummary');
         }
     },
 
     mode: 0,
-
+    what: 0,
 
     sortedCompanies: function () {
 
@@ -62,7 +65,13 @@ StockMarketApp.StockStateSummaryController = Ember.Controller.extend({
             return myArray;
         }
 
-    }.property('content.@each.shareVolume', 'mode')
+    }.property('content.@each.shareVolume', 'mode'),
+
+    turnDownFor: function() {
+        // You know what's up.
+        var what = this.get('what');
+        return what == 1;
+    }.property('what')
 });
 
 
