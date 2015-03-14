@@ -14,20 +14,29 @@
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"{{action 'setMode' 2}}>Losers</button>
         </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"{{action 'setMode' 3}}>Turn Down For</button>
+        </div>
     </div>
     <br>
 
     <!-- This is the stock state summary table -->
     <table class="table table-hover">
         <thead>
-        <tr>
-            <th>Company</th>
-            <th>Open Price</th>
-            <th>Current Price</th>
-            <th>Change: Value - %</th>
-            <th> Share Volume</th>
-            <th> Buy / Sell</th>
-        </tr>
+        {{#if turnDownFor}}
+             <tr>
+                <th>What</th>
+            </tr>
+        {{else}}
+            <tr>
+                <th>Company</th>
+                <th>Open Price</th>
+                <th>Current Price</th>
+                <th>Change: Value - %</th>
+                <th> Share Volume</th>
+                <th> Buy / Sell</th>
+            </tr>
+        {{/if}}
         </thead>
 
         <tbody>
@@ -53,4 +62,10 @@
     {{outlet 'content'}}
 </div>
 
-
+{{#if turnDownFor}}
+    <div class="col-md-12">
+        <div style="width:560px; height:315px; margin:0px auto;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HMUDVMiITOU?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+{{/if}}
